@@ -1,0 +1,12 @@
+{
+  "name": "fullstack",
+  "version": "1.0.0",
+  "description": "this is a full stack software development using flutter as frontend and mongodb as backend ",
+  "license": "ISC",
+  "author": "soyeb",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node index.js"
+  }
+}
