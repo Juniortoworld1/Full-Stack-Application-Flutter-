@@ -27,7 +27,7 @@ import { app } from "./app.js";
 dotenv.config()
 
 connectionDB()
-.them(()=>{
+.then(()=>{
     try{
         app.listen(process.env.PORT||8000 , ()=>{
         console.log(`server is running at port :  ${process.env.PORT||8000}`)
