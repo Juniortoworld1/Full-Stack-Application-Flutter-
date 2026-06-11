@@ -25,7 +25,7 @@ class BuildImagePicker extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+
         const SizedBox(height: 8),
         GestureDetector(
           onTap: onTap,
@@ -55,7 +55,7 @@ class BuildImagePicker extends StatelessWidget {
                   Icon(icon, color: Colors.grey),
                   const SizedBox(height: 4),
                   Text(
-                    "Add",
+                    title,
                     style: const TextStyle(color: Colors.grey, fontSize: 12),
                   ),
                 ],

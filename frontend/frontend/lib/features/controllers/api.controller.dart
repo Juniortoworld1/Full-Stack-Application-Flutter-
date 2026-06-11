@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/foundation.dart'; // Needed for kIsWeb
 
-class ApiHandler {
+class ApiHandler  {
   final String baseUrl = 'http://localhost:4000/api/v1/users/register';
 
   Future<Map<String, dynamic>> sendInputFields({
@@ -13,7 +13,9 @@ class ApiHandler {
     required String password,
     required XFile? avatar,
     required XFile? coverImage,
-  }) async {
+  })
+  async {
+
     final Uri url = Uri.parse(baseUrl);
 
     try {
