@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/features/screens/login.dart';
+import 'package:frontend/features/routes/routes.dart';
+import 'package:frontend/features/screens/signUp.dart';
+
 
 void main(){
   runApp(Main()) ;
@@ -12,7 +14,8 @@ class Main extends StatelessWidget{
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.blue),
       title: "Login",
-      home: Login(),
+      initialRoute: RoutesPage.signup,
+      routes: RoutesPage.getRoutes(),
     );
   }
 }

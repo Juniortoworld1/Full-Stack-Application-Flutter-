@@ -4,15 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:frontend/features/screens/utils/forms.utils.dart';
 import 'package:frontend/features/screens/utils/image_picker.dart';
+import '../controllers/api.controller.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Signup> createState() => _signupState();
 }
 
-class _LoginState extends State<Login> {
+class _signupState extends State<Signup> {
   // Text Form Controllers
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController userNameController = TextEditingController();
@@ -163,11 +164,23 @@ class _LoginState extends State<Login> {
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         // Just prints data to the console locally to show you it works!
                         print("Full Name: ${fullNameController.text}");
                         print("Profile Image Local Path: ${_profileImage?.path}");
                         print("Document Local Path: ${_documentImage?.path}");
+
+                        final ApiHandler apiHandler = ApiHandler() ;
+
+                        final Map<String , dynamic> response = await apiHandler.sendInputFields(
+                            fullName: fullNameController.toString(), email: gmailController.toString(), userName: userNameController.toString(), password: passwordController.toString(), avatar:_profileImage , coverImage: _documentImage );
+                        if(response['success']!=false){
+                          print("form submitted Successsfully") ;
+                        }
+                        else{
+                          print("Submission falied ") ;
+                        }
+
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue,
