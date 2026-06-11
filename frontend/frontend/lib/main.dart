@@ -15,7 +15,7 @@ class Main extends StatelessWidget{
       theme: ThemeData(primarySwatch: Colors.blue),
       title: "Login",
       initialRoute: RoutesPage.signup,
-      routes: RoutesPage.getRoutes(),
+      onGenerateRoute: RoutesPage.onGenerateRoute,
     );
   }
 }

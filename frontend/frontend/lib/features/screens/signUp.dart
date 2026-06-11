@@ -190,7 +190,7 @@ class _signupState extends State<Signup> {
                           final ApiHandler apiHandler = ApiHandler() ;
 
                           final Map<String , dynamic> response = await apiHandler.sendInputFields(
-                              fullName: fullNameController.toString(), email: gmailController.toString(), userName: userNameController.toString(), password: passwordController.toString(), avatar:_profileImage , coverImage: _documentImage );
+                              fullName: fullNameController.text, email: gmailController.text, userName: userNameController.text, password: passwordController.text, avatar:_profileImage , coverImage: _documentImage );
                           if(response['success']!=false){
                             print("form submitted Successsfully") ;
                           }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/features/controllers/api.login.controller.dart';
+import 'package:frontend/features/routes/routes.dart';
 import 'package:frontend/features/screens/utils/forms.utils.dart';
 import 'package:frontend/main.dart';
 
@@ -116,6 +117,7 @@ class _LoginState extends State<Login> {
 
                           if(response['success']!=false){
                             print("form submitted Successsfully") ;
+                            Navigator.pushNamed(context, "/user/${response['_id']}" , arguments: response) ;
                           }
                           else{
                             print("Submission falied ") ;
