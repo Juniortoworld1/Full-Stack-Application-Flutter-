@@ -1,8 +1,15 @@
 import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiLogin {
-  final BASEURL = 'http://localhost:4000/api/v1/users/login';
+
+  final String BASEURL = kIsWeb
+      ? 'http://localhost:4000/api/v1/users/login'
+      : (Platform.isAndroid
+      ? 'http://10.0.2.2:4000/api/v1/users/login'
+      : 'http://localhost:4000/api/v1/users/login');
 
   Future<Map<String, dynamic>> fetchdata(String username, String password) async {
     final Uri uri = Uri.parse(BASEURL) ;

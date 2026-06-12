@@ -1,10 +1,15 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/foundation.dart'; // Needed for kIsWeb
 
 class ApiHandler  {
-  final String baseUrl = 'http://localhost:4000/api/v1/users/register';
+  final String baseUrl = kIsWeb
+      ? 'http://localhost:4000/api/v1/users/login'
+      : (Platform.isAndroid
+      ? 'http://10.0.2.2:4000/api/v1/users/login'
+      : 'http://localhost:4000/api/v1/users/login');
 
   Future<Map<String, dynamic>> sendInputFields({
     required String fullName,
